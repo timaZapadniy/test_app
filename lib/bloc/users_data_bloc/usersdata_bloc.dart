@@ -14,7 +14,7 @@ class UsersdataBloc extends Bloc<UsersdataEvent, UsersdataState> {
       yield LoadingUsersState();
       try {
         final List _loadedUsers= await usersRepository.fetchUsers();
-        yield LoadedUsersState(usersList: _loadedUsers );
+        yield LoadedUsersState(usersList: [..._loadedUsers] );
       } catch (_) {
         yield ErrorLoadUsersState();
       }

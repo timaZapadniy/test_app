@@ -10,6 +10,7 @@ class PostPreviewItem extends StatelessWidget {
       padding: const EdgeInsets.only(top: 5.0, left: 4, right: 4),
       child: DecoratedBox(
         decoration: BoxDecoration(
+          border: Border.all(color: const Color(0xFF522e23)),
           borderRadius: BorderRadius.circular(10),
           color: Colors.brown[200],
           boxShadow: [
@@ -27,17 +28,21 @@ class PostPreviewItem extends StatelessWidget {
           },
           child: SizedBox(
             
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: Text('${post.title}'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(2.0),
-                  child: Text('${post.body}', overflow: TextOverflow.fade, maxLines: 1,),
-                ),
-              ],
+            child: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text('${post.title}'),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: Text('${post.body}', overflow: TextOverflow.fade, maxLines: 1,),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

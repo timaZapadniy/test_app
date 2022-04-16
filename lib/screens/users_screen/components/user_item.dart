@@ -36,6 +36,7 @@ class UserItem extends StatelessWidget {
                 ),
 
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(2.0),

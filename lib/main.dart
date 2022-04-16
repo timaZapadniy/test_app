@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:test_app/bloc/posts_bloc/posts_bloc.dart';
 import 'package:test_app/bloc/users_data_bloc/usersdata_bloc.dart';
+import 'package:test_app/services/post_services/post_repository.dart';
 import 'package:test_app/services/user_services/user_repository.dart';
 
 import 'screens/users_screen/users_body.dart';
@@ -28,9 +30,11 @@ class MyApp extends StatelessWidget {
       900: const Color(0xFF522e23),
     };
     final userRepository = UserRepository();
+    final postRepository = PostRepository();
     return MultiProvider(
       providers: [
         Provider<UsersdataBloc>(create: (_) => UsersdataBloc(usersRepository: userRepository),),
+        Provider<PostsBloc>(create: (_) => PostsBloc(postsRepository: postRepository),),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -38,7 +42,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: const Color(0xFFe1dacc),
           primarySwatch: MaterialColor(0xFF522e23, colorCodes),
                 ),
-        home: const UsersBody()
+        home: const SafeArea(child: UsersBody())
       ),
     );
   }
