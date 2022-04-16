@@ -44,7 +44,7 @@ class _AddressInfoState extends State<AddressInfo> {
               children: [
                 Row(
                   children: [
-                     const Text('Address:'),
+                     const Text('Address:', style: TextStyle(fontWeight: FontWeight.bold),),
                      const Spacer(),
                      SizedBox(
                        height: 30,

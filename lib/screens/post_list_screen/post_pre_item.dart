@@ -27,7 +27,7 @@ class PostPreviewItem extends StatelessWidget {
            // Navigator.push(context, MaterialPageRoute(builder: (context) =>  UserDetails(user: user,)));
           },
           child: SizedBox(
-            
+            width: double.infinity,
             child: Padding(
               padding: const EdgeInsets.all(4.0),
               child: Column(
@@ -35,7 +35,7 @@ class PostPreviewItem extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(2.0),
-                    child: Text('${post.title}'),
+                    child: Text('${post.title}', style: TextStyle(fontWeight: FontWeight.bold),),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(2.0),

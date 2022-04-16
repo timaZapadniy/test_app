@@ -10,39 +10,40 @@ class UserPosts extends StatelessWidget {
   Widget build(BuildContext context) {
     final PostsBloc usersBloc = BlocProvider.of<PostsBloc>(context);
     usersBloc.add(GetPostsEvent(userId: userId));
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Padding(
-          padding: EdgeInsets.all(4.0),
-          child: Text('Posts:', style: TextStyle(fontSize: 20, color: Color(0xFF522e23), fontWeight: FontWeight.bold),),
-        ),
-        BlocBuilder<PostsBloc, PostsState>(
-        builder: (context, state) {
-        if (state is PostsInitial) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom:8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(4.0),
+            child: Text('Posts:', style: TextStyle(fontSize: 20, color: Color(0xFF522e23), fontWeight: FontWeight.bold),),
+          ),
+          BlocBuilder<PostsBloc, PostsState>(
+          builder: (context, state) {
+          if (state is PostsInitial) {
+          return const SizedBox();
+        }
+
+        if (state is LoadingPostsState) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        if (state is LoadedPostsState) {
+          return  Column(children: [
+            PostPreviewItem(post: state.postsList![0]),
+            PostPreviewItem(post: state.postsList![1]),
+            PostPreviewItem(post: state.postsList![2]),
+          ],);   
+        }
+
+        if (state is ErrorLoadPostsState) {
+          return const Center(child: Center(child: Text('')));
+        }
         return const SizedBox();
-      }
-
-      if (state is LoadingPostsState) {
-        return const Center(child: CircularProgressIndicator());
-      }
-      if (state is LoadedPostsState) {
-        return        
-        ListView.builder(
-          shrinkWrap: true,
-            itemCount: state.postsList!.length>=3? 3 : state.postsList!.length,
-            itemBuilder: (context, index){
-              return PostPreviewItem(post: state.postsList![index],);
-            });
-      }
-
-      if (state is ErrorLoadPostsState) {
-        return const Center(child: Center(child: Text('')));
-      }
-      return const SizedBox();
-    })
-        
-      ],
+      })
+          
+        ],
+      ),
     );
   }
 }

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:test_app/bloc/albums_bloc/albums_bloc.dart';
+import 'package:test_app/bloc/photos_bloc/photos_bloc.dart';
 import 'package:test_app/bloc/posts_bloc/posts_bloc.dart';
 import 'package:test_app/bloc/users_data_bloc/usersdata_bloc.dart';
+import 'package:test_app/services/album_services/album_repository.dart';
+import 'package:test_app/services/photos_services/photos.repository.dart';
 import 'package:test_app/services/post_services/post_repository.dart';
 import 'package:test_app/services/user_services/user_repository.dart';
 
@@ -29,12 +33,16 @@ class MyApp extends StatelessWidget {
       800: const Color(0xFF522e23),
       900: const Color(0xFF522e23),
     };
-    final userRepository = UserRepository();
-    final postRepository = PostRepository();
+    final _userRepository = UserRepository();
+    final _postRepository = PostRepository();
+    final _albumRepository = AlbumRepository();
+    final _photosRepository = PhotosRepository();
     return MultiProvider(
       providers: [
-        Provider<UsersdataBloc>(create: (_) => UsersdataBloc(usersRepository: userRepository),),
-        Provider<PostsBloc>(create: (_) => PostsBloc(postsRepository: postRepository),),
+        Provider<UsersdataBloc>(create: (_) => UsersdataBloc(usersRepository: _userRepository),),
+        Provider<PostsBloc>(create: (_) => PostsBloc(postsRepository: _postRepository),),
+        Provider<AlbumsBloc>(create: (_) => AlbumsBloc(albumRepository: _albumRepository),),
+        Provider<PhotosBloc>(create: (_) => PhotosBloc(photosRepository: _photosRepository),),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

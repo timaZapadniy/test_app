@@ -22,7 +22,7 @@ class CompanyInfo extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Working:'),
+                const Text('Working:', style: TextStyle(fontWeight: FontWeight.bold),),
                 const SizedBox(height: 8,),
                 Text('Name: ${company!.name}'),
                 Text('bs: ${company!.bs}'),
