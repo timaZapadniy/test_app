@@ -34,14 +34,15 @@ class UserDetails extends StatelessWidget {
               height: 1,
               color: Color(0xFF522e23),
             ),
-            UserPosts(
-              userId: user.id,
-            ),
+            UserAlbums(userId: user.id,),
             const Divider(
               height: 1,
               color: Color(0xFF522e23),
             ),
-            UserAlbums(userId: user.id,)
+            
+            UserPosts(
+              userId: user.id,
+            ),
           ],
         ),
       ),

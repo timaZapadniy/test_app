@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/model/address.dart';
+import 'package:test_app/screens/user_details_screen/components/header_btn.dart';
 
 class AddressInfo extends StatefulWidget {
   const AddressInfo({ Key? key, this.address}) : super(key: key);
@@ -46,9 +47,7 @@ class _AddressInfoState extends State<AddressInfo> {
                   children: [
                      const Text('Address:', style: TextStyle(fontWeight: FontWeight.bold),),
                      const Spacer(),
-                     SizedBox(
-                       height: 30,
-                       child: TextButton(onPressed:(){openMore();} , child: const Text('See more...', style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),)))
+                     HeaderButton(onTap:(){openMore();} ,text: 'See more...',)
                   ],
                 ),
                 SizedBox(child: Text('${_address!.city}, ${_address!.street} st., ${_address!.suite}',)),
