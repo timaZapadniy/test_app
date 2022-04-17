@@ -38,7 +38,7 @@ class PostPreviewItem extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(2.0),
-                    child: Text('${post.title}', style: TextStyle(fontWeight: FontWeight.bold),),
+                    child: Text('${post.title}', style: const TextStyle(fontWeight: FontWeight.bold),),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(2.0),

@@ -22,17 +22,17 @@ class Comments extends StatelessWidget {
       }
       if (state is LoadedCommentsState) {
         List _items = [];
-        state.commentsList!.forEach((element){
+        for (var element in state.commentsList!) {
           _items.add(CommentItem(comment: element));
-        });
+        }
         return Column(children: [..._items],);
       }
 
       if (state is CommentsAddedState) {
          List _items = [];
-        state.commentsList!.forEach((element){
+        for (var element in state.commentsList!) {
           _items.add(CommentItem(comment: element));
-        });
+        }
         return Column(children: [..._items],);
       }
 

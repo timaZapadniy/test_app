@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:test_app/model/album.dart';
 import 'package:test_app/model/photo.dart';
 
 class PhotosProvider {

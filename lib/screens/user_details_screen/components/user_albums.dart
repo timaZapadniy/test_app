@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_app/bloc/albums_bloc/albums_bloc.dart';
-import 'package:test_app/bloc/photos_bloc/photos_bloc.dart';
-import 'package:test_app/bloc/posts_bloc/posts_bloc.dart';
-import 'package:test_app/model/album.dart';
 import 'package:test_app/screens/album_list_screen/album_pre_item.dart';
 import 'package:test_app/screens/album_list_screen/albums_screen.dart';
-import 'package:test_app/screens/post_list_screen/post_pre_item.dart';
-import 'package:test_app/screens/post_list_screen/posts_screen.dart';
 import 'package:test_app/screens/user_details_screen/components/header_btn.dart';
 
 class UserAlbums extends StatelessWidget {

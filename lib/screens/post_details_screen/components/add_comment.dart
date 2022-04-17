@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:http/http.dart';
 import 'package:test_app/bloc/comments_bloc/comments_bloc.dart';
 
 class AddComment extends StatefulWidget {
@@ -93,7 +92,7 @@ class _AddCommentState extends State<AddComment> {
               height: 180,
               child: Center(child: Icon(Icons.done, size: 80, color: Colors.green,))),
             DecoratedBox(
-          decoration: BoxDecoration(color: Color(0xFFe1dacc)),
+          decoration: const BoxDecoration(color: Color(0xFFe1dacc)),
           child: Row(
             children: [
               Expanded(
