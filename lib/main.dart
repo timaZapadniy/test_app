@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:test_app/bloc/albums_bloc/albums_bloc.dart';
 import 'package:test_app/bloc/comments_bloc/comments_bloc.dart';
@@ -13,7 +14,8 @@ import 'package:test_app/services/user_services/user_repository.dart';
 
 import 'screens/users_screen/users_body.dart';
 
-void main() {
+Future<void> main() async {
+  await Hive.initFlutter();
   runApp(const MyApp());
 }
 
