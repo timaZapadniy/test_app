@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: const Color(0xFFe1dacc),
           primarySwatch: MaterialColor(0xFF522e23, colorCodes),
                 ),
-        home: const SafeArea(child: UsersBody())
+        home: UsersBody()
       ),
     );
   }
