@@ -13,4 +13,13 @@ class LoadedCommentsState extends CommentsState {
   final  List? commentsList;
 
 }
+
+class CommentsAddedState extends CommentsState {
+ 
+  CommentsAddedState({required this.commentsList
+   });
+  final  List? commentsList;
+
+}
+
 class ErrorLoadCommentsState extends CommentsState {}

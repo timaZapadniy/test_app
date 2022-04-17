@@ -28,6 +28,14 @@ class Comments extends StatelessWidget {
         return Column(children: [..._items],);
       }
 
+      if (state is CommentsAddedState) {
+         List _items = [];
+        state.commentsList!.forEach((element){
+          _items.add(CommentItem(comment: element));
+        });
+        return Column(children: [..._items],);
+      }
+
       if (state is ErrorLoadCommentsState) {
         return const Center(child: Center(child: Text('')));
       }

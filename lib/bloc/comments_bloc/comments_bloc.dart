@@ -7,17 +7,27 @@ part 'comments_state.dart';
 
 class CommentsBloc extends Bloc<CommentsEvent, CommentsState> {
   CommentsBloc({required this.commentsRepository}) : super(CommentsInitial());
-    final CommentsRepository commentsRepository;
-    @override
+  final CommentsRepository commentsRepository;
+  @override
   Stream<CommentsState> mapEventToState(CommentsEvent event) async* {
     if (event is GetCommentsEvent) {
       yield LoadingCommentsState();
       try {
-        final List _loadedComments = await commentsRepository.fetchComments(postId: event.postId);
+        final List _loadedComments =
+            await commentsRepository.fetchComments(postId: event.postId);
         yield LoadedCommentsState(commentsList: [..._loadedComments]);
       } catch (_) {
         yield ErrorLoadCommentsState();
       }
-    } 
+    } else if (event is AddCommentEvent) {
+      yield LoadingCommentsState();
+      try {
+        final List _loadedComments = await commentsRepository.addComment(
+            comment: event.comment, email: event.email, name: event.name, postId: event.postId);
+        yield CommentsAddedState(commentsList: [..._loadedComments]);
+      } catch (_) {
+        yield ErrorLoadCommentsState();
+      }
+    }
   }
 }

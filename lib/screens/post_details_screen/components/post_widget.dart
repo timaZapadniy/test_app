@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/model/post.dart';
 import 'package:test_app/model/user.dart';
+import 'package:test_app/screens/post_details_screen/components/add_comment.dart';
 import 'package:test_app/screens/post_details_screen/components/comments.dart';
 import 'package:test_app/screens/user_details_screen/user_details.dart';
 
@@ -16,9 +17,7 @@ class PostWidget extends StatelessWidget {
         elevation: 8,
         shape: const RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft : Radius.circular(15),topRight : Radius.circular(15))),
         builder: (BuildContext context) {
-          return SizedBox(
-            height: MediaQuery.of(context).size.height*0.7,
-          );});
+          return AddComment(postId: post.id,);});
   }
   @override
   Widget build(BuildContext context) {
