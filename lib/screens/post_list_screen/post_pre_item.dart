@@ -1,31 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/model/post.dart';
+import 'package:test_app/model/user.dart';
+import 'package:test_app/screens/post_details_screen/post_details_screen.dart';
 
 class PostPreviewItem extends StatelessWidget {
-  const PostPreviewItem({ Key? key, required this.post }) : super(key: key);
+  const PostPreviewItem({ Key? key, required this.post, required this.user}) : super(key: key);
   final Post post;
+  final User user;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 5.0, left: 4, right: 4),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          border: Border.all(color: const Color(0xFF522e23)),
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.brown[200],
-          boxShadow: [
-            
-                  BoxShadow(
-                    offset: const Offset(0, 0),
-                    blurRadius: 3,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
-                ],
-        ),
-        child: GestureDetector(
+    return GestureDetector(
           onTap: (){
-           // Navigator.push(context, MaterialPageRoute(builder: (context) =>  UserDetails(user: user,)));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => PostDetails(post: post, user: user,)));
           },
+      child: Padding(
+        padding: const EdgeInsets.only(top: 5.0, left: 4, right: 4),
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            border: Border.all(color: const Color(0xFF522e23)),
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.brown[200],
+            boxShadow: [
+              
+                    BoxShadow(
+                      offset: const Offset(0, 0),
+                      blurRadius: 3,
+                      color: Colors.grey.withOpacity(0.5),
+                    ),
+                  ],
+          ),
           child: SizedBox(
             width: double.infinity,
             child: Padding(

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_app/bloc/posts_bloc/posts_bloc.dart';
+import 'package:test_app/model/user.dart';
 import 'package:test_app/screens/post_list_screen/post_pre_item.dart';
 
 class PostsScreen extends StatelessWidget {
-  const PostsScreen({ Key? key }) : super(key: key);
-
+  const PostsScreen({ Key? key, required this.user }) : super(key: key);
+  final User user;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +26,7 @@ class PostsScreen extends StatelessWidget {
           return  ListView.builder(
             itemCount: state.postsList!.length,
             itemBuilder: (context, index){
-              return PostPreviewItem(post: state.postsList![index]);
+              return PostPreviewItem(post: state.postsList![index], user: user,);
             });   
         }
 

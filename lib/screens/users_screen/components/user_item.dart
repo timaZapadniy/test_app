@@ -9,23 +9,21 @@ class UserItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 5.0, left: 4, right: 4),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.brown[200],
-          boxShadow: [
-            
-                  BoxShadow(
-                    offset: const Offset(0, 0),
-                    blurRadius: 3,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
-                ],
-        ),
-        child: GestureDetector(
-          onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) =>  UserDetails(user: user,)));
-          },
+      child: GestureDetector(
+        onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context) =>  UserDetails(user: user,)));},
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.brown[200],
+            boxShadow: [
+              
+                    BoxShadow(
+                      offset: const Offset(0, 0),
+                      blurRadius: 3,
+                      color: Colors.grey.withOpacity(0.5),
+                    ),
+                  ],
+          ),
           child: SizedBox(
             
             child: Row(
@@ -34,7 +32,7 @@ class UserItem extends StatelessWidget {
                   padding: EdgeInsets.all(4.0),
                   child: Icon(Icons.person, size: 50,),
                 ),
-
+      
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

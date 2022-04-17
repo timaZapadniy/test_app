@@ -41,7 +41,7 @@ class UserDetails extends StatelessWidget {
             ),
             
             UserPosts(
-              userId: user.id,
+              user: user,
             ),
           ],
         ),
